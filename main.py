@@ -227,14 +227,14 @@ class SimpleP2PChat:
         
         # Send multiple punch packets
         punch_msg = b"PUNCH"
-        for i in range(10):
+        for i in range(1000):
             try:
                 self.sock.sendto(punch_msg, (ip, port))
                 print(f"  Punch {i+1} sent to {ip}:{port}")
             except Exception as e:
                 print(f"  Error sending punch {i+1}: {e}")
             
-            time.sleep(0.5)  # 500ms between punches
+            time.sleep(0.01)  # 500ms between punches
         
         print("\n=== Punching complete ===")
         print("Waiting for peer response...")
